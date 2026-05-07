@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/:path*",
-      "destination": "https://teate.lubunet.shop/:path*"
+      "destination": "https://143.14.244.242/:path*"
     }
   ]
 }
