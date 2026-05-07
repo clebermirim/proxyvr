@@ -2,19 +2,18 @@ const httpProxy = require('http-proxy');
 const proxy = httpProxy.createProxyServer({});
 
 export default function (req, res) {
-  // Alvo: Teu IP na porta 443 (que a tua VPS redireciona para a 8443)
-  const target = 'http://143.14.244.242:443'; 
+  // Tente bater direto na porta 8443 via HTTP 
+  // (ignore o redirecionamento interno da VPS por um momento)
+  const target = 'http://143.14.244.242:8443'; 
 
   proxy.web(req, res, { 
     target: target,
     changeOrigin: true,
-    autoRewrite: true,
+    secure: false, // Ignora erros de SSL caso existam
     headers: {
         'Host': '143.14.244.242'
     }
   }, (err) => {
-    // Caso a VPS não responda ou a porta esteja fechada
-    res.status(502).send('VPS Offline ou erro de conexão na porta 443.');
+    res.status(502).send('Erro: ' + err.message);
   });
-
 }
