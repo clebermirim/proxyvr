@@ -1,9 +1,14 @@
 {
   "version": 2,
+  "functions": {
+    "index.js": {
+      "runtime": "vercel-node@latest"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "https://143.14.244.242/$1"
+      "destination": "/index.js"
     }
   ]
 }
