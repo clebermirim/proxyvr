@@ -2,8 +2,8 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "https://teate.lubunet.shop/$1"
+      "source": "/:path*",
+      "destination": "https://teate.lubunet.shop/:path*"
     }
   ]
 }
